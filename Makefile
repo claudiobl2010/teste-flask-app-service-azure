@@ -3,8 +3,8 @@ setup:
 
 start:
 	@FLASK_ENV=development \
-	FLASK_APP=src/app/server.py \
+	FLASK_APP=app.py \
 	flask run --host 0.0.0.0 --port 5000
 
 gunicorn:
-	@gunicorn --bind 0.0.0.0:5000 --chdir src --workers 1 app.server:app
+	@gunicorn --bind 0.0.0.0:5000 --workers 1 app:app
